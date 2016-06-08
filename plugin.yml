@@ -1,0 +1,17 @@
+name: LBParticles
+main: LBParticles\Main
+version: 0.0.1
+api: [1.4.0]
+load:
+author: LBSG
+description: Lifeboat Particles Plugin For All
+website: https://lbsg.net
+commands:
+ particles:
+  description: "Manages the particles plugin"
+  usage: "/particles <command> <args>"
+  permission: lbparticles
+permissions:
+ lbparticles:
+  default: op
+  description: "Commands that handle all things particles"

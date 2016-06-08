@@ -1,0 +1,6 @@
+particles: true
+onlyOp: true
+users:
+    humerusj: LavaParticleEffect
+    williamtdr: PortalParticleEffect
+    brandon15811: RainbowParticleEffect
