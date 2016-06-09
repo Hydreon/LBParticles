@@ -1,5 +1,12 @@
+# Whether or not to disable particles
 particles: true
+
+# Whether or not the particles can
+# be managed by anyone other than OP
 onlyOp: true
+
+# Users that have access to a particle effect
+# Array of usernames to particle effect class
 users:
     humerusj: LavaParticleEffect
     williamtdr: PortalParticleEffect

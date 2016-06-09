@@ -4,8 +4,19 @@ namespace Particle\effects;
 
 use pocketmine\level\particle\RedstoneParticle;
 
+/**
+ * The redstone particle effect
+ */
 class RedstoneParticleEffect implements ParticleEffect {
 
+	/**
+	 * Run the particle effect
+	 *
+	 * @param  integer $currentTick The current tick
+	 * @param  Player $player       The player to fix the effect for
+	 * @param  array $showTo        The players to show the particle to
+	 * @return null
+	 */
 	public function tick($currentTick, $player, $showTo) {
 		if ($player->lastUpdate < $currentTick - 5) {
 

@@ -4,9 +4,22 @@ namespace Particle\effects;
 
 use pocketmine\level\particle\DustParticle;
 
-
+/**
+ * The rainbow particle effect
+ */
 class RainbowParticleEffect implements ParticleEffect {
 
+	/**
+	 * Convert an HSV value to RGB
+	 *
+	 * @param  integer $h The h value
+	 * @param  integer $s The s value
+	 * @param  integer $v The v value
+	 * @param  integer $r The r value
+	 * @param  integer $g The g value
+	 * @param  integer $b The b value
+	 * @return null
+	 */
 	static function hsv2rgb($h, $s, $v, &$r, &$g, &$b) {
 		$h = (($h % 360) / 359) * 6;
 		$s = ($s % 101) / 100;
@@ -46,6 +59,14 @@ class RainbowParticleEffect implements ParticleEffect {
 		}
 	}
 
+	/**
+	 * Run the particle effect
+	 *
+	 * @param  integer $currentTick The current tick
+	 * @param  Player $player       The player to fix the effect for
+	 * @param  array $showTo        The players to show the particle to
+	 * @return null
+	 */
 	public function tick($currentTick, $player, $showTo) {
 		$n = mt_rand(0, 1);
 		$this->hsv2rgb($n * 2, 100, 100, $r, $g, $b);
