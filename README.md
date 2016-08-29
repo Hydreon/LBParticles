@@ -5,8 +5,8 @@ LBParticles - A simple plugin for adding particles to your server
 
 | Command | Sub Command | User | Params | Description |
 |:-------:|:-----------:|:----:|:------:|:-----------:|
-|`particles`|`give`|`<name>`|`LavaParticleEffect, PortalParticleEffect, RainbowParticleEffect, RedstoneParticleEffect`| Spawns a player's particle |
-|`particles`|`remove`|`<name>`|    | Removes a player's particles |
+|`lbparticles`|`give`|`<name>`|`LavaParticleEffect, PortalParticleEffect, RainbowParticleEffect, RedstoneParticleEffect`| Spawns a player's particle |
+|`lbparticles`|`remove`|`<name>`|    | Removes a player's particles |
 
 ## The plugin can also be accessed by its API
 

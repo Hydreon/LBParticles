@@ -126,6 +126,10 @@ class Main extends PluginBase implements Listener {
 
                 $sender->sendMessage(TextFormat::RED . "[LBParticles] You don't have permissions to do that...");
                 return true;
+            case "help":
+                $sender->sendMessage(TextFormat::GREEN . '[LBParticles] Available commands: give, remove');
+                return true;
+                break;
             default:
                 return false;
         }

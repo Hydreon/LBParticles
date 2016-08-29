@@ -7,9 +7,9 @@ author: LBSG
 description: Lifeboat Particles Plugin For All
 website: https://lbsg.net
 commands:
- particles:
+ lbparticles:
   description: "Manages the particles plugin"
-  usage: "/particles <command> <args>"
+  usage: "/lbparticles <command> <args>"
   permission: lbparticles
 permissions:
  lbparticles:
