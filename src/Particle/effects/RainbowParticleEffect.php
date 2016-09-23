@@ -85,7 +85,7 @@ class RainbowParticleEffect implements ParticleEffect {
 
 			for ($i = 0; $i < 2; $i++) {
 				$distance = -0.5 + lcg_value();
-				$yaw = $player->yaw * M_PI / 180 + (-0.5 + lcg_value()) * 90 + 1;
+				$yaw = $player->yaw * M_PI / 180 + (-0.5 + lcg_value()) * 90;
 				$x = $distance * -sin($yaw) + 1;
 				$z = $distance * cos($yaw);
 				$y = lcg_value() * 0.4 + 0.5;
