@@ -68,7 +68,7 @@ class RainbowParticleEffect implements ParticleEffect {
 	 * @return null
 	 */
 	public function tick($currentTick, $player, $showTo) {
-		$n = mt_rand(0, 1);
+		$n = mt_rand(0, 6);
 		$this->hsv2rgb($n * 2, 100, 100, $r, $g, $b);
 
 		if ($player->lastUpdate < $currentTick - 5) {
