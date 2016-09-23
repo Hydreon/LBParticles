@@ -33,29 +33,29 @@ class RainbowParticleEffect implements ParticleEffect {
 
 		$r = $g = $b = 0;
 		if ($i == 0) {
-			$r = $v;
-			$g = $k;
-			$b = $m;
+			$r = 0;
+			$g = 255;
+			$b = 0;
 		} else if ($i == 1) {
-			$r = $n;
-			$g = $v;
-			$b = $m;
+			$r = 0;
+			$g = 0;
+			$b = 255;
 		} else if ($i == 2) {
-			$r = $m;
-			$g = $v;
-			$b = $k;
+			$r = 255;
+			$g = 255;
+			$b = 0;
 		} else if ($i == 3) {
-			$r = $m;
-			$g = $n;
-			$b = $v;
+			$r = 255;
+			$g = 165;
+			$b = 0;
 		} else if ($i == 4) {
-			$r = $k;
-			$g = $m;
-			$b = $v;
+			$r = 255;
+			$g = 0;
+			$b = 0;
 		} else if ($i == 5 || $i == 6) {
-			$r = $v;
-			$g = $m;
-			$b = $n;
+			$r = 255;
+			$g = 255;
+			$b = 255;
 		}
 	}
 
@@ -87,7 +87,7 @@ class RainbowParticleEffect implements ParticleEffect {
 				$distance = -0.5 + lcg_value() + 1;
 				$yaw = $player->yaw * M_PI / 180 + (-0.5 + lcg_value()) * 90 + 1;
 				$x = $distance * cos($yaw);
-				$z = $distance * sin($yaw);
+				$z = $distance * -sin($yaw);
 				$y = lcg_value() * 0.4 + 0.5;
 				$player->getLevel()->addParticle(new DustParticle($player->add($x, $y + 1, $z), $r, $g, $b), $showTo);
 			}
