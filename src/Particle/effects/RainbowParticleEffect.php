@@ -84,12 +84,12 @@ class RainbowParticleEffect implements ParticleEffect {
 		} else {
 
 			for ($i = 0; $i < 2; $i++) {
-				$distance = -0.5 + lcg_value();
-				$yaw = $player->yaw * M_PI / 180 + (-0.5 + lcg_value()) * 90;
-				$x = $distance * -sin($yaw) + 1;
-				$z = $distance * cos($yaw) + 1;
+				$distance = -0.5 + lcg_value() + 1;
+				$yaw = $player->yaw * M_PI / 180 + (-0.5 + lcg_value()) * 90 + 1;
+				$x = $distance * -sin($yaw);
+				$z = $distance * cos($yaw);
 				$y = lcg_value() * 0.4 + 0.5;
-				$player->getLevel()->addParticle(new DustParticle($player->add($x + 1, $y + 1, $z), $r, $g, $b), $showTo);
+				$player->getLevel()->addParticle(new DustParticle($player->add($x, $y + 1, $z), $r, $g, $b), $showTo);
 			}
 		}
 	}
