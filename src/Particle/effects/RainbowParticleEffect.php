@@ -89,7 +89,7 @@ class RainbowParticleEffect implements ParticleEffect {
 				$x = $distance * -sin($yaw);
 				$z = $distance * cos($yaw);
 				$y = lcg_value() * 0.4 + 0.5;
-				$player->getLevel()->addParticle(new DustParticle($player->add($x, $y, $z), $r, $g, $b), $showTo);
+				$player->getLevel()->addParticle(new DustParticle($player->add($x + 1, $y + 1, $z + 1), $r, $g, $b), $showTo);
 			}
 		}
 	}
