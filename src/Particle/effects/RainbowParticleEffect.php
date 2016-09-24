@@ -3,6 +3,7 @@
 namespace Particle\effects;
 
 use pocketmine\level\particle\DustParticle;
+use pocketmine\utils\Random;
 
 /**
  * The rainbow particle effect
@@ -33,9 +34,9 @@ class RainbowParticleEffect implements ParticleEffect {
 
 		$r = $g = $b = 0;
 		if ($i == 0) {
-			$r = 0;
-			$g = 255;
-			$b = 0;
+			$r = mt_rand(0, 255);
+			$g = mt_rand(0, 255);
+			$b = mt_rand(0, 255);
 		} else if ($i == 1) {
 			$r = 0;
 			$g = 0;
@@ -67,8 +68,9 @@ class RainbowParticleEffect implements ParticleEffect {
 	 * @param  array $showTo        The players to show the particle to
 	 * @return null
 	 */
-	public function tick($currentTick, $player, $showTo) {
+	public function tick(Random $random, $currentTick, $player, $showTo) {
 		$n = mt_rand(0, 6);
+		$i = mt_rand(0, 6);
 		$this->hsv2rgb($n * 2, 100, 100, $r, $g, $b);
 
 		if ($player->lastUpdate < $currentTick - 5) {
@@ -83,7 +85,7 @@ class RainbowParticleEffect implements ParticleEffect {
 			$player->getLevel()->addParticle(new DustParticle($player->add(-$x, 2 - $y, $z), $r, $g, $b), $showTo);
 		} else {
 
-			for ($i = 0; $i < 7; $i++) {
+			for ($i = mt_rand(0, 6) ; $i < 7; $i++) {
 				$distance = -0.5 + lcg_value() + 1;
 				$yaw = $player->yaw * M_PI / 180 + (-0.5 + lcg_value()) * 90 + 1;
 				$x = $distance * -cos($yaw);
