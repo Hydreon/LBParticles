@@ -68,7 +68,7 @@ class RainbowParticleEffect implements ParticleEffect {
 	 * @param  array $showTo        The players to show the particle to
 	 * @return null
 	 */
-	public function tick(Random $random, $currentTick, $player, $showTo) {
+	public function tick($currentTick, $player, $showTo) {
 		$n = mt_rand(0, 6);
 		$i = mt_rand(0, 6);
 		$this->hsv2rgb($n * 2, 100, 100, $r, $g, $b);
