@@ -3,6 +3,7 @@
 namespace Particle\effects;
 
 use pocketmine\level\particle\DustParticle;
+use pocketmine\utils\Random;
 
 /**
  * The rainbow particle effect
@@ -33,29 +34,29 @@ class RainbowParticleEffect implements ParticleEffect {
 
 		$r = $g = $b = 0;
 		if ($i == 0) {
-			$r = $v;
-			$g = $k;
-			$b = $m;
+			$r = 0 || 0 || 255 || 255 || 255 || 255;
+			$g = 255 || 0 || 255 || 165 || 0 || 255;
+			$b = 0 || 255 || 0 || 0 || 0 || 255;
 		} else if ($i == 1) {
-			$r = $n;
-			$g = $v;
-			$b = $m;
+			$r = 0;
+			$g = 0;
+			$b = 255;
 		} else if ($i == 2) {
-			$r = $m;
-			$g = $v;
-			$b = $k;
+			$r = 255;
+			$g = 255;
+			$b = 0;
 		} else if ($i == 3) {
-			$r = $m;
-			$g = $n;
-			$b = $v;
+			$r = 255;
+			$g = 165;
+			$b = 0;
 		} else if ($i == 4) {
-			$r = $k;
-			$g = $m;
-			$b = $v;
+			$r = 255;
+			$g = 0;
+			$b = 0;
 		} else if ($i == 5 || $i == 6) {
-			$r = $v;
-			$g = $m;
-			$b = $n;
+			$r = 255;
+			$g = 255;
+			$b = 255;
 		}
 	}
 
@@ -68,7 +69,8 @@ class RainbowParticleEffect implements ParticleEffect {
 	 * @return null
 	 */
 	public function tick($currentTick, $player, $showTo) {
-		$n = mt_rand(0, 1);
+		$n = mt_rand(0, 6);
+		$i = mt_rand(0, 6);
 		$this->hsv2rgb($n * 2, 100, 100, $r, $g, $b);
 
 		if ($player->lastUpdate < $currentTick - 5) {
@@ -83,13 +85,13 @@ class RainbowParticleEffect implements ParticleEffect {
 			$player->getLevel()->addParticle(new DustParticle($player->add(-$x, 2 - $y, $z), $r, $g, $b), $showTo);
 		} else {
 
-			for ($i = 0; $i < 2; $i++) {
-				$distance = -0.5 + lcg_value();
-				$yaw = $player->yaw * M_PI / 180 + (-0.5 + lcg_value()) * 90;
-				$x = $distance * cos($yaw);
+			for ($i = mt_rand(0, 6) ; $i < 7; $i++) {
+				$distance = -0.5 + lcg_value() + 1;
+				$yaw = $player->yaw * M_PI / 180 + (-0.5 + lcg_value()) * 90 + 1;
+				$x = $distance * -cos($yaw);
 				$z = $distance * sin($yaw);
 				$y = lcg_value() * 0.4 + 0.5;
-				$player->getLevel()->addParticle(new DustParticle($player->add($x, $y, $z), $r, $g, $b), $showTo);
+				$player->getLevel()->addParticle(new DustParticle($player->add($x, $y + 1, $z), $r, $g, $b), $showTo);
 			}
 		}
 	}
