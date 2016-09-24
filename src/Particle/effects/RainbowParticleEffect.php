@@ -34,9 +34,9 @@ class RainbowParticleEffect implements ParticleEffect {
 
 		$r = $g = $b = 0;
 		if ($i == 0) {
-			$r = 0 or 0 or 255 or 255 or 255 or 255;
-			$g = 255 or 0 or 255 or 165 or 0 or 255;
-			$b = 0 or 255 or 0 or 0 or 0 or 255;
+			$r = 0 || 0 || 255 || 255 || 255 || 255;
+			$g = 255 || 0 || 255 || 165 || 0 || 255;
+			$b = 0 || 255 || 0 || 0 || 0 || 255;
 		} else if ($i == 1) {
 			$r = 0;
 			$g = 0;
