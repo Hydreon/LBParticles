@@ -19,8 +19,8 @@ class PortalParticleEffect implements ParticleEffect {
 	 * @return null
 	 */
 	public function tick($currentTick, $player, $showTo) {
-		$player->getLevel()->addParticle(new DustParticle($player->add(-0.5 + lcg_value() + 1, 1.5 + lcg_value() / 2 + 1, -0.5 + lcg_value()) + 1, 255, 0, 255), $showTo);
-		$player->getLevel()->addParticle(new PortalParticle($player->add(-0.5 + lcg_value() + 1, 0.5 + lcg_value() + 1, -0.5 + lcg_value() + 1)), $showTo);
+		$player->getLevel()->addParticle(new DustParticle($player->add(-0.5 + lcg_value() , 1.5 + lcg_value() / 2 , -0.5 + lcg_value()) , 255, 0, 255), $showTo);
+		$player->getLevel()->addParticle(new PortalParticle($player->add(-0.5 + lcg_value() , 0.5 + lcg_value() , -0.5 + lcg_value())), $showTo);
 	}
 
 }
